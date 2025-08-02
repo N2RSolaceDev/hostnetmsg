@@ -99,4 +99,24 @@ function isValidEncryptedData(encryptedData) {
 }
 
 /**
- * Extracts salt from encrypted data (for debugging
+ * Extracts salt from encrypted data (for debugging or key derivation)
+ * 
+ * @param {string} encryptedData - Base64-encoded
+ * @returns {Buffer|null} - Salt buffer
+ */
+function extractSalt(encryptedData) {
+  try {
+    const buffer = Buffer.from(encryptedData, 'base64');
+    if (buffer.length <= SALT_LENGTH) return null;
+    return buffer.subarray(0, SALT_LENGTH);
+  } catch {
+    return null;
+  }
+}
+
+module.exports = {
+  decryptMessage,
+  decryptWithKey,
+  isValidEncryptedData,
+  extractSalt
+};
