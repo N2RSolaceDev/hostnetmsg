@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Premium • HostNet.wiki</title>
+  <link rel="stylesheet" href="/css/app.css" />
+  <style>
+    .premium-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    .price {
+      font-size: 2.5em;
+      color: #00ff88;
+      margin: 20px 0;
+    }
+    .features {
+      text-align: left;
+      margin: 30px 0;
+    }
+    .features li {
+      margin: 15px 0;
+      color: #ddd;
+    }
+    .cta {
+      margin: 30px 0;
+    }
+    button {
+      background: #00ff88;
+      color: black;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .note {
+      margin-top: 40px;
+      color: #999;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="hostnet-app">
+    <div class="chat">
+      <div class="premium-container">
+        <h1>💎 HostNet Premium</h1>
+        <p class="price">£5.99/month</p>
+        <p>Unlock the full power of HostNet.</p>
+
+        <ul class="features">
+          <li>✅ 1080p Screen Sharing</li>
+          <li>✅ 4K Video Calls</li>
+          <li>✅ Custom Themes & Fonts</li>
+          <li>✅ Server Boosting (up to 1000 members)</li>
+          <li>✅ Priority Support</li>
+          <li>✅ Advanced Moderation Tools</li>
+          <li>✅ File Uploads up to 100MB</li>
+        </ul>
+
+        <div class="cta">
+          <button onclick="upgrade()">Upgrade Now</button>
+        </div>
+
+        <p class="note">
+          All features currently free during beta.<br>
+          Future payments via <a href="https://buymeacoffee.com/solacedev" target="_blank">BuyMeACoffee</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function upgrade() {
+      alert('Premium coming soon. Thank you for supporting HostNet.');
+    }
+  </script>
+</body>
+</html>
