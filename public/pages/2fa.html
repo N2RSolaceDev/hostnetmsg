@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2FA • HostNet.wiki</title>
+  <link rel="stylesheet" href="/css/app.css" />
+  <style>
+    .twofactor-container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    .qr-code {
+      margin: 20px auto;
+      width: 200px;
+      height: 200px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    input {
+      padding: 12px;
+      width: 200px;
+      margin: 20px 0;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 10px;
+    }
+    button {
+      background: #00ff88;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="hostnet-app">
+    <div class="chat">
+      <div class="twofactor-container">
+        <h1>🔐 Two-Factor Authentication</h1>
+        <p>Secure your account with 2FA.</p>
+
+        <div class="qr-code">QR CODE PLACEHOLDER</div>
+        <p>Scan with Google Authenticator or Authy</p>
+
+        <p><strong>Secret:</strong> <code id="secret">ABCD1234</code></p>
+
+        <input type="text" id="code" maxlength="6" placeholder="123456" />
+        <button onclick="verifyCode()">Enable 2FA</button>
+
+        <p style="margin-top:20px;">
+          <a href="#" onclick="sendEmailOTP()">Send code to email</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function sendEmailOTP() {
+      const res = await fetch('/api/send-otp', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ method: 'email' })
+      });
+      const data = await res.json();
+      alert('OTP sent to your email.');
+    }
+
+    function verifyCode() {
+      alert('2FA enabled. (Simulation)');
+      window.history.back();
+    }
+
+    // In real version: generate TOTP secret
+  </script>
+</body>
+</html>
